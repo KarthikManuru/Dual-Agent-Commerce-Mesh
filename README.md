@@ -249,6 +249,6 @@ Any external AI buyer agent can autonomously discover this merchant's capabiliti
 
 ## 👥 Authors & License
 
-* Built for **AI Growth & Agentic Commerce Hackathon 2026**
+* Built for **AI Growth & Agentic Commerce Razorpay Buildathon 2026**
 * Developed by **Karthik Manuru**
 * Licensed under the **MIT License**.
