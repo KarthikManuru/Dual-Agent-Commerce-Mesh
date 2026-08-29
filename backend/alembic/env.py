@@ -14,8 +14,12 @@ from app.models import Base  # noqa: E402
 # Alembic Config object
 config = context.config
 
+# Import settings
+from app.config import get_settings  # noqa: E402
+settings = get_settings()
+
 # Override URL from environment if available
-database_url = os.getenv("DATABASE_URL_SYNC")
+database_url = settings.sync_database_url
 if database_url:
     config.set_main_option("sqlalchemy.url", database_url)
 

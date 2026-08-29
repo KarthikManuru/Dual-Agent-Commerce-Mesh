@@ -34,6 +34,26 @@ class Settings(BaseSettings):
     PORT: int = 8000
     ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000"
 
+    @property
+    def async_database_url(self) -> str:
+        url = self.DATABASE_URL
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif url.startswith("postgresql://") and not url.startswith("postgresql+asyncpg://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
+
+    @property
+    def sync_database_url(self) -> str:
+        url = self.DATABASE_URL_SYNC if (self.DATABASE_URL_SYNC and "localhost" not in self.DATABASE_URL_SYNC) else self.DATABASE_URL
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+psycopg2://", 1)
+        elif url.startswith("postgresql+asyncpg://"):
+            url = url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
+        elif url.startswith("postgresql://") and not url.startswith("postgresql+psycopg2://"):
+            url = url.replace("postgresql://", "postgresql+psycopg2://", 1)
+        return url
+
     model_config = {
         "env_file": (ROOT_ENV_PATH, LOCAL_ENV_PATH, ".env"),
         "env_file_encoding": "utf-8",
