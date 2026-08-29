@@ -1,0 +1,25 @@
+# Core
+fastapi[standard]>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.0
+pydantic-settings>=2.0
+python-dotenv>=1.0
+
+# Database
+sqlalchemy[asyncio]>=2.0
+asyncpg>=0.29.0
+psycopg2-binary>=2.9
+alembic>=1.13
+
+# Redis / Queue
+redis>=5.0
+rq>=1.16
+
+# Razorpay (used from Phase 2)
+razorpay>=1.4
+
+# HTTP
+httpx>=0.27
+
+# Utils
+python-dateutil>=2.9
