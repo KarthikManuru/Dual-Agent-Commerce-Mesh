@@ -180,13 +180,29 @@ app = FastAPI(
 
 import os
 
-# CORS — allow all origins for public API access
+# CORS — allow Vercel domains, localhost, and wildcard regex
+settings = get_settings()
+_allowed_origins_str = os.environ.get("ALLOWED_ORIGINS", "")
+_allowed_origins = [o.strip() for o in _allowed_origins_str.split(",") if o.strip()]
+_default_origins = [
+    "https://dual-agent-commerce-mesh.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
+for o in _default_origins:
+    if o not in _allowed_origins:
+        _allowed_origins.append(o)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origins=_allowed_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Register routers
