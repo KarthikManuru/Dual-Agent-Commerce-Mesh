@@ -5,21 +5,20 @@
 
 ---
 
-## 📋 Pre-Demo Setup (10 Seconds Before Presentation)
+## 🌐 Live Production URLs (Submitted to Judges)
 
-Open two terminal windows:
+* **Live Buyer Storefront (Vercel)**: [https://dual-agent-commerce-mesh.vercel.app/](https://dual-agent-commerce-mesh.vercel.app/)
+* **Live Merchant Command Center**: [https://dual-agent-commerce-mesh.vercel.app/dashboard](https://dual-agent-commerce-mesh.vercel.app/dashboard)
+* **Live Production Backend API (Railway)**: [https://dual-agent-commerce-mesh-production.up.railway.app](https://dual-agent-commerce-mesh-production.up.railway.app)
+* **Interactive API Documentation (Swagger)**: [https://dual-agent-commerce-mesh-production.up.railway.app/docs](https://dual-agent-commerce-mesh-production.up.railway.app/docs)
+* **AI Commerce Manifest (.well-known)**: [https://dual-agent-commerce-mesh-production.up.railway.app/.well-known/ai-commerce](https://dual-agent-commerce-mesh-production.up.railway.app/.well-known/ai-commerce)
 
-### Terminal 1: Backend Server (FastAPI)
-```powershell
-cd "c:\Users\Karth\Desktop\Dual-Agent Commerce Mesh\backend"
-.\venv\Scripts\uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-```
+---
 
-### Terminal 2: Frontend App (Next.js 16.3.2)
-```powershell
-cd "c:\Users\Karth\Desktop\Dual-Agent Commerce Mesh\frontend"
-npm run dev
-```
+## 📋 Local Development Setup (Optional Alternative)
+
+If presenting locally instead of cloud:
+
 
 ---
 
